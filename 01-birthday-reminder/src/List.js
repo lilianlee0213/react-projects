@@ -1,9 +1,18 @@
 import React from 'react';
+import data from './data';
 
 const List = () => {
 	return (
 		<>
-			<h2>list component</h2>
+			{data.map((person) => (
+				<article className="person">
+					<img src={person.image} alt={person.name} className="img" />
+					<div>
+						<h4>{person.name}</h4>
+						<p>{person.age} years</p>
+					</div>
+				</article>
+			))}
 		</>
 	);
 };
