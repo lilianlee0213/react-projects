@@ -1,10 +1,9 @@
 import React from 'react';
-import data from './data';
 
-const List = () => {
+const List = ({people}) => {
 	return (
 		<>
-			{data.map((person) => {
+			{people.map((person) => {
 				const {id, image, name, age} = person;
 				return (
 					<article key={id} className="person">

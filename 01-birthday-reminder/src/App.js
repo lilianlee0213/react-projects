@@ -2,17 +2,16 @@ import React, {useState} from 'react';
 import data from './data';
 import List from './List';
 function App() {
-	const [isCleared, setIsCleared] = useState(false);
-	const clearAll = () => {
-		setIsCleared(true);
-	};
+	const [people, setPeople] = useState(data);
 	return (
 		<main>
 			<section className="container">
-				<h3>{isCleared ? '0' : data.length} birthdays Today</h3>
-				<section>{!isCleared && <List />}</section>
-				<button type="button" onClick={clearAll}>
-					{isCleared ? 'No more upcoming birthdays' : 'clear all'}
+				<h3>{people.length} birthdays Today</h3>
+				<section>
+					<List people={people} />
+				</section>
+				<button type="button" onClick={() => setPeople([])}>
+					clear all
 				</button>
 			</section>
 		</main>
