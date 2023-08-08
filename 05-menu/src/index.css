@@ -222,7 +222,7 @@ Menu
 	line-height: 2;
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
 	.menu-item {
 		grid-template-columns: 225px 1fr;
 		gap: 0 1.25rem;
@@ -231,7 +231,7 @@ Menu
 	.photo {
 		height: 175px;
 	}
-}
+} */
 @media screen and (min-width: 992px) {
 	.section-center {
 		grid-template-columns: repeat(2, 1fr);
