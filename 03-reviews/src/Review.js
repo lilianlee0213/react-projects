@@ -4,27 +4,42 @@ import {FaChevronLeft, FaChevronRight, FaQuoteRight} from 'react-icons/fa';
 
 const Review = () => {
 	const [index, setIndex] = useState(0);
-	const getRandom = () => {
-		const randomIndex = Math.floor(Math.random() * people.length);
-		//need to figure out when random index is the same with the next random index
-		setIndex(randomIndex);
-	};
-	const onClickPrev = () => {
-		if (index <= 0) {
-			setIndex(people.length - 1);
-		} else {
-			setIndex((prev) => prev - 1);
+	const {name, job, image, text} = people[index];
+
+	//check index
+	const checkNumber = (number) => {
+		if (number > people.length - 1) {
+			return 0;
 		}
-	};
-	const onClickNext = () => {
-		if (index >= people.length - 1) {
-			setIndex(0);
-		} else {
-			setIndex((prev) => prev + 1);
+		if (number < 0) {
+			return people.length - 1;
 		}
+		return number;
 	};
 
-	const {name, job, image, text} = people[index];
+	const getRandom = () => {
+		const randomIndex = Math.floor(Math.random() * people.length);
+
+		//if randomIndex and index is the same add + 1
+		if (randomIndex === index) {
+			setIndex(checkNumber(randomIndex + 1));
+		} else {
+			setIndex(randomIndex);
+		}
+	};
+	const onClickPrev = () => {
+		setIndex((prev) => {
+			let newIndex = prev - 1;
+			return checkNumber(newIndex);
+		});
+	};
+	const onClickNext = () => {
+		setIndex((prev) => {
+			let newIndex = prev + 1;
+			return checkNumber(newIndex);
+		});
+	};
+
 	return (
 		<article className="review">
 			<div className="img-container">
