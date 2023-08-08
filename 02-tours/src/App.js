@@ -5,8 +5,19 @@ import Tours from './Tours';
 // I SWITCHED TO PERMANENT DOMAIN
 const url = 'https://course-api.com/react-tours-project';
 function App() {
-	const [isLoading, setIsLoading] = useState(false);
-	return isLoading ? (
+	const [tours, setTours] = useState([]);
+	const getTours = async () => {
+		await fetch(`${url}`)
+			.then((res) => res.json())
+			.then((data) => {
+				setTours(data);
+			});
+	};
+	useEffect(() => {
+		getTours();
+	}, []);
+	console.log(tours);
+	return tours === [] ? (
 		<Loading />
 	) : (
 		<main>
