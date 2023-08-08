@@ -16,17 +16,16 @@ function App() {
 	useEffect(() => {
 		getTours();
 	}, []);
-	console.log(tours);
 	return tours === [] ? (
 		<Loading />
 	) : (
 		<main>
-			<section>
+			<section className="section">
 				<div className="title">
 					<h2>our tours</h2>
 					<div className="underline"></div>
 				</div>
-				<Tours />
+				<Tours tours={tours} />
 			</section>
 		</main>
 	);

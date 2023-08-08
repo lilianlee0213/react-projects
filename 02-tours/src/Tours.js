@@ -1,9 +1,9 @@
 import React from 'react';
 import Tour from './Tour';
-const Tours = () => {
+const Tours = ({tours}) => {
 	return (
 		<div className="tours">
-			<Tour />
+			<Tour tours={tours} />
 		</div>
 	);
 };
