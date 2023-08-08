@@ -17,7 +17,7 @@ const Review = () => {
 		return number;
 	};
 
-	const getRandom = () => {
+	const onClickRandom = () => {
 		const randomIndex = Math.floor(Math.random() * people.length);
 
 		//if randomIndex and index is the same add + 1
@@ -57,7 +57,7 @@ const Review = () => {
 					{FaChevronRight()}
 				</button>
 			</div>
-			<button className="btn random-btn" onClick={getRandom}>
+			<button className="btn random-btn" onClick={onClickRandom}>
 				Suprise me
 			</button>
 		</article>
