@@ -29,7 +29,7 @@ function App() {
 	useEffect(() => {
 		getTours();
 	}, []);
-
+	//when loading, when tours.lenght ===0, and when tours exist
 	return isLoading ? (
 		<Loading />
 	) : tours.length === 0 ? (
