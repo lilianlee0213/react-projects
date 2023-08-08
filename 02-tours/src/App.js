@@ -6,6 +6,12 @@ import Tours from './Tours';
 const url = 'https://course-api.com/react-tours-project';
 function App() {
 	const [tours, setTours] = useState([]);
+	const removeTour = (id) => {
+		const remainingTours = tours.filter((tour) => {
+			return tour.id !== id;
+		});
+		setTours(remainingTours);
+	};
 	const getTours = async () => {
 		await fetch(`${url}`)
 			.then((res) => res.json())
@@ -25,7 +31,7 @@ function App() {
 					<h2>our tours</h2>
 					<div className="underline"></div>
 				</div>
-				<Tours tours={tours} />
+				<Tours tours={tours} removeTour={removeTour} />
 			</section>
 		</main>
 	);
