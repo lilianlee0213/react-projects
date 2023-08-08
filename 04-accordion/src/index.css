@@ -158,11 +158,11 @@ main {
 	border-radius: var(--radius);
 	padding: 2.5rem 2rem;
 	max-width: var(--fixed-width);
-	display: grid;
+	/* display: grid; */
 	gap: 1rem 2rem;
 }
 .container h1 {
-	width: var(--fixed-width);
+	width: 100%;
 	text-align: center;
 	margin-bottom: 3rem;
 	font-size: 3.052rem;
@@ -171,12 +171,12 @@ main {
 	line-height: 1.2;
 	font-weight: 500;
 }
-@media screen and (min-width: 992px) {
+/* @media screen and (min-width: 992px) {
 	.container {
 		display: grid;
 		grid-template-columns: 250px 1fr;
 	}
-}
+} */
 .question {
 	padding: 1rem 1.5rem;
 	border: 2px solid var(--clr-grey-special);
