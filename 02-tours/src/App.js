@@ -20,7 +20,7 @@ function App() {
 		<Loading />
 	) : (
 		<main>
-			<section className="section">
+			<section>
 				<div className="title">
 					<h2>our tours</h2>
 					<div className="underline"></div>
