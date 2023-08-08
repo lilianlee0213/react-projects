@@ -3,7 +3,9 @@ import Tour from './Tour';
 const Tours = ({tours}) => {
 	return (
 		<div className="tours">
-			<Tour tours={tours} />
+			{tours.map((tour) => {
+				return <Tour key={tour.id} {...tour} />;
+			})}
 		</div>
 	);
 };
