@@ -32,11 +32,12 @@ function App() {
 					return (
 						<button
 							key={index}
-							className={`job-btn ${index === value && 'active-btn'}`}>
+							className={`job-btn ${index === value && 'active-btn'}`}
+							onClick={() => setValue(index)}>
 							{job.company}
 						</button>
 					);
-				})}{' '}
+				})}
 			</div>
 			<article className="job-info">
 				<h3>Full Stack web developer</h3>
