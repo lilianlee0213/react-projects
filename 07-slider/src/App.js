@@ -4,10 +4,10 @@ import {FaQuoteRight} from 'react-icons/fa';
 import data from './data';
 function App() {
 	return (
-		<section className="section">
+		<section className="section-center">
 			<article>
 				<img src="" alt="" className="person-name" />
-				<h5>maria</h5>
+				<h5 className="name">maria</h5>
 				<p className="title">hi</p>
 				<p className="text">
 					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et excepturi
@@ -15,6 +15,7 @@ function App() {
 					commodi consequatur hic odio? Nobis iste repellendus temporibus vel
 					asperiores?
 				</p>
+				<FaQuoteRight className="icon" />
 				<button className="prev">{FiChevronLeft()}</button>
 				<button className="next">{FiChevronRight()}</button>
 			</article>
