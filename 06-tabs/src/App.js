@@ -15,7 +15,9 @@ function App() {
 
 	useEffect(() => {
 		fetchJobs();
+		setIsLoading(false);
 	}, []);
+
 	return isLoading ? (
 		<section className="section loading">
 			<h2>Loading...</h2>
