@@ -5,7 +5,15 @@ import data from './data';
 function App() {
 	const [people, setPeople] = useState(data);
 	const [value, setValue] = useState(0);
-	console.log(value);
+	useEffect(() => {
+		const lastIndex = people.length - 1;
+		if (value < 0) {
+			setValue(lastIndex);
+		}
+		if (value > lastIndex) {
+			setValue(0);
+		}
+	}, [value]);
 	useEffect(() => {
 		const interval = setTimeout(() => {
 			setValue((prev) => (prev === people.length - 1 ? 0 : prev + 1));
@@ -34,8 +42,16 @@ function App() {
 						<p className="title">{title}</p>
 						<p className="text">{quote}</p>
 						<FaQuoteRight className="icon" />
-						<button className="prev">{FiChevronLeft()}</button>
-						<button className="next">{FiChevronRight()}</button>
+						<button
+							className="prev"
+							onClick={() => setValue((prev) => prev - 1)}>
+							{FiChevronLeft()}
+						</button>
+						<button
+							className="next"
+							onClick={() => setValue((prev) => prev + 1)}>
+							{FiChevronRight()}
+						</button>
 					</article>
 				);
 			})}
