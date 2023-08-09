@@ -13,6 +13,9 @@ function App() {
 			.then((data) => setJobs(data));
 	};
 
+	useEffect(() => {
+		fetchJobs();
+	}, []);
 	return isLoading ? (
 		<section className="section loading">
 			<h2>Loading...</h2>
