@@ -6,6 +6,8 @@ const url = 'https://course-api.com/react-tabs-project';
 function App() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [jobs, setJobs] = useState([]);
+	//value will be the index
+	const [value, setValue] = useState(0);
 
 	const fetchJobs = async () => {
 		await fetch(`${url}`)
@@ -18,6 +20,7 @@ function App() {
 		setIsLoading(false);
 	}, []);
 
+	const {company, dates, duties, title} = jobs[value];
 	return isLoading ? (
 		<section className="section loading">
 			<h2>Loading...</h2>
