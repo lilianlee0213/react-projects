@@ -4,7 +4,13 @@ import {FaAngleDoubleRight} from 'react-icons/fa';
 // I SWITCHED TO PERMANENT DOMAIN
 const url = 'https://course-api.com/react-tabs-project';
 function App() {
-	return (
+	const [isLoading, setIsLoading] = useState(true);
+
+	return isLoading ? (
+		<section className="section loading">
+			<h2>Loading...</h2>
+		</section>
+	) : (
 		<section className="jobs-center">
 			<div className="btn-container">
 				<button className="job-btn active-btn">Tommy</button>
