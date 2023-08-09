@@ -5,6 +5,13 @@ import {FaAngleDoubleRight} from 'react-icons/fa';
 const url = 'https://course-api.com/react-tabs-project';
 function App() {
 	const [isLoading, setIsLoading] = useState(true);
+	const [jobs, setJobs] = useState([]);
+
+	const fetchJobs = async () => {
+		await fetch(`${url}`)
+			.then((res) => res.json())
+			.then((data) => setJobs(data));
+	};
 
 	return isLoading ? (
 		<section className="section loading">
