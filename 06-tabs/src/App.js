@@ -5,7 +5,7 @@ import {FaAngleDoubleRight} from 'react-icons/fa';
 const url = 'https://course-api.com/react-tabs-project';
 function App() {
 	return (
-		<section className="job-center">
+		<section className="jobs-center">
 			<div className="btn-container">
 				<button className="job-btn active-btn">Tommy</button>
 				<button className="job-btn">BigDrop</button>
@@ -13,7 +13,7 @@ function App() {
 			</div>
 			<article className="job-info">
 				<h3>Full Stack web developer</h3>
-				<span className="job-company">tommy</span>
+				<h4 className="job-company">tommy</h4>
 				<p className="job-date">Descember</p>
 				<div>
 					<div className="job-desc">
