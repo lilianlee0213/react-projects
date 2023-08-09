@@ -28,9 +28,15 @@ function App() {
 	) : (
 		<section className="jobs-center">
 			<div className="btn-container">
-				<button className="job-btn active-btn">Tommy</button>
-				<button className="job-btn">BigDrop</button>
-				<button className="job-btn">Cuker</button>
+				{jobs.map((job, index) => {
+					return (
+						<button
+							key={index}
+							className={`job-btn ${index === value && 'active-btn'}`}>
+							{job.company}
+						</button>
+					);
+				})}{' '}
 			</div>
 			<article className="job-info">
 				<h3>Full Stack web developer</h3>
