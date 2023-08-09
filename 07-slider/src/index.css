@@ -167,7 +167,7 @@ Slider
 	text-align: center;
 	position: relative;
 	display: flex;
-	/* overflow: hidden; */
+	overflow: hidden;
 }
 .person-img {
 	border-radius: 50%;
@@ -247,13 +247,13 @@ article {
 	/* opacity: 0; */
 	transition: var(--transition);
 }
-/* article.activeSlide {
-  opacity: 1;
-  transform: translateX(0);
+article.activeSlide {
+	opacity: 1;
+	transform: translateX(0);
 }
 article.lastSlide {
-  transform: translateX(-100%);
+	transform: translateX(-100%);
 }
 article.nextSlide {
-  transform: translateX(100%);
-} */
+	transform: translateX(100%);
+}
