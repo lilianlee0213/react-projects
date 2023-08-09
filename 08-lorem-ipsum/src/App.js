@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import data from './data';
 function App() {
+	const [lorem, setLorem] = useState(data);
+	console.log(lorem);
 	return (
 		<section className="section-center">
 			<h3>tired of boring lorem ipsum?</h3>
