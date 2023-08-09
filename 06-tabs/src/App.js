@@ -40,19 +40,16 @@ function App() {
 				})}
 			</div>
 			<article className="job-info">
-				<h3>Full Stack web developer</h3>
-				<h4 className="job-company">tommy</h4>
-				<p className="job-date">Descember</p>
+				<h3>{title}</h3>
+				<h4 className="job-company">{company}</h4>
+				<p className="job-date">{dates}</p>
 				<div>
-					<div className="job-desc">
-						Lorem ipsum dolor sit amet consectetur a
-					</div>
-					<div className="job-desc">
-						Lorem ipsum dolor sit amet consectetur a
-					</div>
-					<div className="job-desc">
-						Lorem ipsum dolor sit amet consectetur a
-					</div>
+					{duties.map((duty, index) => (
+						<div className="job-desc" key={index}>
+							<FaAngleDoubleRight className="job-icon"></FaAngleDoubleRight>
+							{duty}
+						</div>
+					))}
 				</div>
 			</article>
 		</section>
