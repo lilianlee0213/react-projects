@@ -7,11 +7,11 @@ function App() {
 	const [color, setColor] = useState('');
 	const [error, setError] = useState(false);
 	const [list, setList] = useState(new Values('#f15025').all(10));
-	console.log(list);
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!error) {
-			console.log(color);
+			let colors = new Values(color).all(10);
+			setList(colors);
 		}
 	};
 	const handleTextInput = (e) => {
@@ -25,7 +25,7 @@ function App() {
 	return (
 		<main>
 			<section className="container">
-				<h3>color genrator</h3>
+				<h3>color generator</h3>
 				<form onSubmit={handleSubmit} className="color-form">
 					<input
 						type="color"
@@ -37,7 +37,7 @@ function App() {
 						placeholder="#f15025"
 						onChange={(e) => handleTextInput(e)}
 						value={color}
-						className={error && 'error'}
+						className={error ? 'error' : null}
 					/>
 					<button className="btn" type="submit">
 						submit
