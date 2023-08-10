@@ -6,6 +6,8 @@ import Values from 'values.js';
 function App() {
 	const [color, setColor] = useState('');
 	const [error, setError] = useState(false);
+	const [list, setList] = useState(new Values('#f15025').all(10));
+	console.log(list);
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!error) {
@@ -43,7 +45,9 @@ function App() {
 				</form>
 			</section>
 			<section className="colors">
-				<SingleColor />
+				{list.map((color, index) => {
+					return <SingleColor key={index} {...color} />;
+				})}
 			</section>
 		</main>
 	);
