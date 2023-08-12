@@ -3,12 +3,22 @@ import List from './List';
 import Alert from './Alert';
 
 function App() {
+	const [item, setItem] = useState('');
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(item);
+	};
 	return (
 		<section className="section-center">
-			<form action="" className="grocery-form">
+			<form onSubmit={handleSubmit} className="grocery-form">
 				<h3>grocery bud</h3>
 				<div className="form-control">
-					<input type="text" className="grocery" placeholder="Add item" />
+					<input
+						type="text"
+						className="grocery"
+						placeholder="Add item"
+						onChange={(e) => setItem(e.target.value)}
+					/>
 					<button type="submit" className="submit-btn">
 						Submit
 					</button>
