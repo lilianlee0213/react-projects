@@ -35,7 +35,7 @@ function App() {
 				</div>
 			</form>
 			<div className="grocery-container">
-				<List />
+				<List list={list} />
 			</div>
 		</section>
 	);
