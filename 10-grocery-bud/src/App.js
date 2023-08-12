@@ -4,7 +4,16 @@ import Alert from './Alert';
 
 function App() {
 	const [item, setItem] = useState('');
-	const [list, setList] = useState([]);
+	const [list, setList] = useState(() => {
+		const savedList = localStorage.getItem('list');
+		const list = JSON.parse(savedList);
+		return list || [];
+	});
+
+	//Local Storage
+	useEffect(() => {
+		localStorage.setItem('list', JSON.stringify(list));
+	}, [list]);
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (item === '') {
@@ -15,7 +24,6 @@ function App() {
 		//empty input value after submit
 		setItem('');
 	};
-	console.log(list);
 
 	return (
 		<section className="section-center">
