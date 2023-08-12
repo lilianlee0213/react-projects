@@ -7,6 +7,7 @@ function App() {
 	const [list, setList] = useState(() => {
 		const savedList = localStorage.getItem('list');
 		const list = JSON.parse(savedList);
+		console.log(list);
 		return list || [];
 	});
 
@@ -20,11 +21,17 @@ function App() {
 			return;
 		}
 		//return new array with current item and elements of prevArray
-		setList((prev) => [item, ...prev]);
+		const itemObj = {id: new Date().getTime().toString(), title: item};
+		setList((prev) => [itemObj, ...prev]);
 		//empty input value after submit
 		setItem('');
 	};
-
+	const removeItem = (id) => {
+		const savedList = localStorage.getItem('list');
+		const list = JSON.parse(savedList);
+		const newArray = list.filter((item) => item.id !== id);
+		setList(newArray);
+	};
 	return (
 		<section className="section-center">
 			<form onSubmit={handleSubmit} className="grocery-form">
@@ -43,7 +50,7 @@ function App() {
 				</div>
 			</form>
 			<div className="grocery-container">
-				<List list={list} />
+				<List list={list} removeItem={removeItem} />
 			</div>
 		</section>
 	);
