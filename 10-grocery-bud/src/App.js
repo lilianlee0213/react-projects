@@ -69,6 +69,7 @@ function App() {
 	};
 	return (
 		<section className="section-center">
+			<Alert />
 			<form onSubmit={handleSubmit} className="grocery-form">
 				<h3>grocery bud</h3>
 				<div className="form-control">
