@@ -4,10 +4,19 @@ import Alert from './Alert';
 
 function App() {
 	const [item, setItem] = useState('');
+	const [list, setList] = useState([]);
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(item);
+		if (item === '') {
+			return;
+		}
+		//return new array with current item and elements of prevArray
+		setList((prev) => [item, ...prev]);
+		//empty input value after submit
+		setItem('');
 	};
+	console.log(list);
+
 	return (
 		<section className="section-center">
 			<form onSubmit={handleSubmit} className="grocery-form">
@@ -18,6 +27,7 @@ function App() {
 						className="grocery"
 						placeholder="Add item"
 						onChange={(e) => setItem(e.target.value)}
+						value={item}
 					/>
 					<button type="submit" className="submit-btn">
 						Submit
@@ -25,14 +35,7 @@ function App() {
 				</div>
 			</form>
 			<div className="grocery-container">
-				<div className="grocery-item">
-					<input type="checkbox" className="check-box" />
-					<p className="title">egg</p>
-					<div className="button-container">
-						<button className="edit-btn">Edit</button>
-						<button className="delete-btn">Delete</button>
-					</div>
-				</div>
+				<List />
 			</div>
 		</section>
 	);
