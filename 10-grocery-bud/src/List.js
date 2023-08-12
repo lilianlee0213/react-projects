@@ -13,7 +13,7 @@ const List = ({list, removeItem}) => {
 						onClick={() => {
 							removeItem(item.id);
 						}}>
-						delete
+						{FaTrash()}
 					</button>
 				</div>
 			</div>
