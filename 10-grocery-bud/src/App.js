@@ -21,7 +21,6 @@ function App() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const itemObj = {id: new Date().getTime().toString(), title: item};
-
 		if (!item) {
 			return;
 		} else if (item && isEditing) {
@@ -65,6 +64,9 @@ function App() {
 			setEditId(id);
 		}
 	};
+	const clearList = () => {
+		setList([]);
+	};
 	return (
 		<section className="section-center">
 			<form onSubmit={handleSubmit} className="grocery-form">
@@ -78,12 +80,15 @@ function App() {
 						value={item}
 					/>
 					<button type="submit" className="submit-btn">
-						Submit
+						{isEditing ? 'Edit' : 'Submit'}
 					</button>
 				</div>
 			</form>
 			<div className="grocery-container">
 				<List list={list} removeItem={removeItem} editItem={editItem} />
+				<button className="clear-btn" onClick={clearList}>
+					clear items
+				</button>
 			</div>
 		</section>
 	);
