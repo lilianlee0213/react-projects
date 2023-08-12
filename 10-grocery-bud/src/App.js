@@ -32,6 +32,16 @@ function App() {
 		const newArray = list.filter((item) => item.id !== id);
 		setList(newArray);
 	};
+
+	const editItem = (id) => {
+		const savedList = localStorage.getItem('list');
+		const list = JSON.parse(savedList);
+		const editValue = list.find((item) => item.id === id);
+		if (editValue) {
+			//bring the written value to text input field
+			setItem(editValue.title);
+		}
+	};
 	return (
 		<section className="section-center">
 			<form onSubmit={handleSubmit} className="grocery-form">
@@ -50,7 +60,7 @@ function App() {
 				</div>
 			</form>
 			<div className="grocery-container">
-				<List list={list} removeItem={removeItem} />
+				<List list={list} removeItem={removeItem} editItem={editItem} />
 			</div>
 		</section>
 	);
