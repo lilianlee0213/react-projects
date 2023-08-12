@@ -7,12 +7,12 @@ function App() {
 	const [list, setList] = useState(() => {
 		const savedList = localStorage.getItem('list');
 		const list = JSON.parse(savedList);
-		console.log(list);
 		return list || [];
 	});
 	const [editId, setEditId] = useState(null);
 	const [isEditing, setIsEditing] = useState(false);
-
+	const [alert, setAlert] = useState({show: false, msg: '', type: ''});
+	console.log(alert);
 	//Local Storage
 	useEffect(() => {
 		localStorage.setItem('list', JSON.stringify(list));
@@ -37,19 +37,25 @@ function App() {
 			setItem('');
 			setIsEditing(false);
 			setEditId(null);
+			showAlert(true, 'success', 'item changed');
+			// setAlert(true, 'success', 'item changed');
 		} else {
+			showAlert(true, 'success', 'item added to the list');
 			//return new array with current item and elements of prevArray
 			setList((prev) => [itemObj, ...prev]);
 			//empty input value after submit
 			setItem('');
 		}
 	};
-
+	const showAlert = (show = false, type = '', msg = '') => {
+		setAlert({show, type, msg});
+	};
 	const removeItem = (id) => {
 		const savedList = localStorage.getItem('list');
 		const list = JSON.parse(savedList);
 		const newArray = list.filter((item) => item.id !== id);
 		setList(newArray);
+		showAlert(true, 'danger', 'item removed');
 	};
 
 	const editItem = (id) => {
@@ -66,10 +72,12 @@ function App() {
 	};
 	const clearList = () => {
 		setList([]);
+		showAlert(true, 'danger', 'Cleared');
 	};
 	return (
 		<section className="section-center">
-			<Alert />
+			{/* {alert.show && <Alert {...alert} />} */}
+			<Alert {...alert} showAlert={showAlert} />
 			<form onSubmit={handleSubmit} className="grocery-form">
 				<h3>grocery bud</h3>
 				<div className="form-control">
