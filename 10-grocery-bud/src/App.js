@@ -10,22 +10,42 @@ function App() {
 		console.log(list);
 		return list || [];
 	});
+	const [editId, setEditId] = useState(null);
+	const [isEditing, setIsEditing] = useState(false);
 
 	//Local Storage
 	useEffect(() => {
 		localStorage.setItem('list', JSON.stringify(list));
 	}, [list]);
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (item === '') {
-			return;
-		}
-		//return new array with current item and elements of prevArray
 		const itemObj = {id: new Date().getTime().toString(), title: item};
-		setList((prev) => [itemObj, ...prev]);
-		//empty input value after submit
-		setItem('');
+
+		if (!item) {
+			return;
+		} else if (item && isEditing) {
+			setList(
+				list.map((i) => {
+					if (i.id === editId) {
+						//change item title to input value
+						return {editId, title: item};
+					}
+					//return rest of list item
+					return i;
+				})
+			);
+			setItem('');
+			setIsEditing(false);
+			setEditId(null);
+		} else {
+			//return new array with current item and elements of prevArray
+			setList((prev) => [itemObj, ...prev]);
+			//empty input value after submit
+			setItem('');
+		}
 	};
+
 	const removeItem = (id) => {
 		const savedList = localStorage.getItem('list');
 		const list = JSON.parse(savedList);
@@ -40,6 +60,9 @@ function App() {
 		if (editValue) {
 			//bring the written value to text input field
 			setItem(editValue.title);
+			setIsEditing(true);
+			//pass id to submit new value when editing
+			setEditId(id);
 		}
 	};
 	return (
