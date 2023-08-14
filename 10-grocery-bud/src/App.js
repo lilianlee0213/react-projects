@@ -17,7 +17,7 @@ function App() {
 	useEffect(() => {
 		localStorage.setItem('list', JSON.stringify(list));
 	}, [list]);
-
+	console.log(list);
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const itemObj = {id: new Date().getTime().toString(), title: item};
@@ -95,9 +95,11 @@ function App() {
 			</form>
 			<div className="grocery-container">
 				<List list={list} removeItem={removeItem} editItem={editItem} />
-				<button className="clear-btn" onClick={clearList}>
-					clear items
-				</button>
+				{list.length !== 0 && (
+					<button className="clear-btn" onClick={clearList}>
+						clear items
+					</button>
+				)}
 			</div>
 		</section>
 	);
