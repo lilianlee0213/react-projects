@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react';
 
 const AppContext = React.createContext();
+
 const AppProvider = ({children}) => {
 	const [isSidebarOpen, setIsSideBarOpen] = useState(false);
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,6 +20,7 @@ const AppProvider = ({children}) => {
 	);
 };
 
-export const useGloabalContext = () => {
+export const useGlobalContext = () => {
 	return useContext(AppContext);
 };
+export {AppContext, AppProvider};
