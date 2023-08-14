@@ -186,13 +186,12 @@ nav {
 	display: none;
 }
 .links-container {
-	/* height: 0; */
-	height: 200px;
-	/* overflow: hidden; */
+	height: 0;
+	overflow: hidden;
 	transition: var(--transition);
 }
 .show-container {
-	height: 10rem;
+	height: 200px;
 }
 @media screen and (min-width: 800px) {
 	.nav-center {
