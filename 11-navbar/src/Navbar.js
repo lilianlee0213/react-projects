@@ -20,8 +20,14 @@ const Navbar = () => {
 						</li>
 					))}
 				</ul>
-				<ul className="social-icons"></ul>
 			</div>
+			<ul className="social-icons">
+				{social.map((icon) => (
+					<li>
+						<a href={icon.url}>{icon.icon}</a>
+					</li>
+				))}
+			</ul>
 		</div>
 	);
 };

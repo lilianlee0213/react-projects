@@ -214,6 +214,8 @@ nav {
 	}
 	.links {
 		display: flex;
+		background-color: transparent;
+		box-shadow: none;
 	}
 	.links a {
 		padding: 0;
