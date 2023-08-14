@@ -76,8 +76,7 @@ function App() {
 	};
 	return (
 		<section className="section-center">
-			{/* {alert.show && <Alert {...alert} />} */}
-			<Alert {...alert} showAlert={showAlert} />
+			<Alert {...alert} showAlert={showAlert} list={list} />
 			<form onSubmit={handleSubmit} className="grocery-form">
 				<h3>grocery bud</h3>
 				<div className="form-control">
