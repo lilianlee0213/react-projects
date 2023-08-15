@@ -145,7 +145,7 @@ Stripe Styles
 	justify-content: center;
 	background: transparent;
 	position: relative;
-	z-index: 1;
+	/* z-index: 1; */
 }
 .nav-center {
 	width: 90vw;
