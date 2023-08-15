@@ -5,12 +5,14 @@ import {useGlobalContext} from './context';
 
 const Navbar = () => {
 	const {openSidebar, openSubmenu, closeSubmenu} = useGlobalContext();
+	console.log();
 	const displaySubmenu = (e) => {
 		const page = e.target.textContent;
 		const tempBtn = e.target.getBoundingClientRect();
 		const center = (tempBtn.left + tempBtn.right) / 2;
 		const bottom = tempBtn.bottom - 3;
 		openSubmenu(page, {center, bottom});
+		console.log(page);
 	};
 	const handleCloseSubmenu = (e) => {
 		if (!e.target.classList.contains('nav-link')) {
@@ -27,17 +29,17 @@ const Navbar = () => {
 				<ul className="nav-links">
 					<li>
 						<button className="nav-link" onMouseOver={displaySubmenu}>
-							Product
+							products
 						</button>
 					</li>
 					<li>
 						<button className="nav-link" onMouseOver={displaySubmenu}>
-							Solutions
+							solutions
 						</button>
 					</li>
 					<li>
 						<button className="nav-link" onMouseOver={displaySubmenu}>
-							Resources
+							resources
 						</button>
 					</li>
 				</ul>
