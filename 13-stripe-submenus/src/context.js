@@ -42,6 +42,6 @@ const AppProvider = ({children}) => {
 	);
 };
 
-export const useGlobalContext = useContext(AppProvider);
+export const useGlobalContext = () => useContext(AppProvider);
 
 export {AppContext, AppProvider};
