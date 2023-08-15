@@ -4,12 +4,11 @@ import sublinks from './data';
 import {useGlobalContext} from './context';
 
 const Sidebar = () => {
-	const {isSidebarOpen} = useGlobalContext();
-	console.log(isSidebarOpen);
+	const {isSidebarOpen, closeSidebar} = useGlobalContext();
 	return (
 		<aside className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}>
 			<div className="sidebar-container ">
-				<button className="close-btn">
+				<button className="close-btn" onClick={closeSidebar}>
 					<FaTimes />
 				</button>
 				<div className="sidebar-links">
