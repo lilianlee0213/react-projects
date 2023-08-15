@@ -27,21 +27,21 @@ const AppProvider = ({children}) => {
 
 	return (
 		<AppContext.Provider
-			value={
-				(isSidebarOpen,
+			value={{
+				isSidebarOpen,
 				openSidebar,
 				closeSidebar,
 				isSubmenuOpen,
 				openSubmenu,
 				closeSubmenu,
 				page,
-				location)
-			}>
+				location,
+			}}>
 			{children}
 		</AppContext.Provider>
 	);
 };
 
 export const useGlobalContext = () => useContext(AppContext);
-
+console.log(useGlobalContext);
 export {AppContext, AppProvider};

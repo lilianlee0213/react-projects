@@ -4,7 +4,8 @@ import {FaBars} from 'react-icons/fa';
 import {useGlobalContext} from './context';
 
 const Navbar = () => {
-	const {openSidebar} = useGlobalContext();
+	const {isSidebarOpen, openSidebar} = useGlobalContext();
+	console.log(openSidebar);
 	return (
 		<nav className="nav">
 			<div className="nav-center">
