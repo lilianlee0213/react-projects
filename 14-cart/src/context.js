@@ -5,7 +5,7 @@ const url = 'https://course-api.com/react-useReducer-cart-project';
 const AppContext = React.createContext();
 
 const initialState = {
-	count: 0,
+	loading: false,
 	cart: cartItems,
 	total: 0,
 	amount: 0,
@@ -24,6 +24,7 @@ const AppProvider = ({children}) => {
 	const clearCart = () => {};
 	//fetch
 	const fetchCart = async () => {
+		dispatch({type: 'loading'});
 		await fetch(`${url}`)
 			.then((res) => res.json())
 			.then((data) => console.log(data));

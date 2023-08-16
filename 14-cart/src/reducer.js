@@ -8,5 +8,7 @@ export const reducer = (state, action) => {
 				return cartItem;
 			});
 			return {...state, cart: tempCart};
+		case 'loading':
+			return {...state, loading: true};
 	}
 };
