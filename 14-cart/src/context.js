@@ -1,9 +1,9 @@
 import React, {useState, useContext, useReducer, useEffect} from 'react';
 import cartItems from './data';
+import {reducer} from './reducer';
 const url = 'https://course-api.com/react-useReducer-cart-project';
 const AppContext = React.createContext();
 
-const reducer = (state, action) => {};
 const initialState = {
 	count: 0,
 	cart: cartItems,
@@ -13,7 +13,9 @@ const initialState = {
 const AppProvider = ({children}) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 	//increase
-	const increase = () => {};
+	const increase = (id) => {
+		dispatch({type: 'increase', payload: {id}});
+	};
 	//descrease
 	const decrease = () => {};
 	//remove
