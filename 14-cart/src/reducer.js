@@ -10,5 +10,7 @@ export const reducer = (state, action) => {
 			return {...state, cart: tempCart};
 		case 'loading':
 			return {...state, loading: true};
+		case 'display':
+			return {...state, cart: action.payload, loading: false};
 	}
 };

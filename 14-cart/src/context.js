@@ -6,7 +6,7 @@ const AppContext = React.createContext();
 
 const initialState = {
 	loading: false,
-	cart: cartItems,
+	cart: [],
 	total: 0,
 	amount: 0,
 };
@@ -27,7 +27,9 @@ const AppProvider = ({children}) => {
 		dispatch({type: 'loading'});
 		await fetch(`${url}`)
 			.then((res) => res.json())
-			.then((data) => console.log(data));
+			.then((data) => {
+				dispatch({type: 'display', payload: data});
+			});
 	};
 	useEffect(() => {
 		fetchCart();
