@@ -19,7 +19,9 @@ const AppProvider = ({children}) => {
 	//descrease
 	const decrease = () => {};
 	//remove
-	const remove = () => {};
+	const remove = (id) => {
+		dispatch({type: 'remove', payload: id});
+	};
 	//clear
 	const clearCart = () => {
 		dispatch({type: 'clear'});

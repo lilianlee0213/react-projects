@@ -2,6 +2,11 @@ export const reducer = (state, action) => {
 	switch (action.type) {
 		case 'clear':
 			return {...state, cart: []};
+		case 'remove':
+			return {
+				...state,
+				cart: state.cart.filter((cartItem) => cartItem.id !== action.payload),
+			};
 		case 'loading':
 			return {...state, loading: true};
 		case 'display':
