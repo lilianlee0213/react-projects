@@ -12,12 +12,6 @@ const initialState = {
 };
 const AppProvider = ({children}) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
-	//increase
-	const increase = (id) => {
-		dispatch({type: 'increase', payload: {id}});
-	};
-	//descrease
-	const decrease = () => {};
 	//remove
 	const remove = (id) => {
 		dispatch({type: 'remove', payload: id});
@@ -26,6 +20,10 @@ const AppProvider = ({children}) => {
 	const clearCart = () => {
 		dispatch({type: 'clear'});
 	};
+	//getTotals
+	useEffect(() => {
+		dispatch({type: 'getTotal'});
+	}, [state.cart]);
 	//fetch
 	const fetchCart = async () => {
 		dispatch({type: 'loading'});
@@ -45,8 +43,6 @@ const AppProvider = ({children}) => {
 		<AppContext.Provider
 			value={{
 				...state,
-				increase,
-				decrease,
 				remove,
 				clearCart,
 				toggleAmount,
