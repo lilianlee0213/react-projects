@@ -21,7 +21,9 @@ const AppProvider = ({children}) => {
 	//remove
 	const remove = () => {};
 	//clear
-	const clearCart = () => {};
+	const clearCart = () => {
+		dispatch({type: 'clear'});
+	};
 	//fetch
 	const fetchCart = async () => {
 		dispatch({type: 'loading'});

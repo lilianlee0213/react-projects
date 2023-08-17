@@ -1,13 +1,7 @@
 export const reducer = (state, action) => {
 	switch (action.type) {
-		case 'increase':
-			let increaseCart = state.cart.map((cartItem) => {
-				if (cartItem.id === action.payload) {
-					return {...cartItem, amount: cartItem.amount + 1};
-				}
-				return cartItem;
-			});
-			return {...state, cart: increaseCart};
+		case 'clear':
+			return {...state, cart: []};
 		case 'loading':
 			return {...state, loading: true};
 		case 'display':
